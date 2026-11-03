@@ -104,7 +104,7 @@ if (nav) {
              <button class="nav-logout" onclick="logoutUser()">Log out</button>`
             : `<a href="login.html">Sign in</a>`
         }
-        <a class="nav-admin" href="admin.html">Admin ↗</a>
+        <a class="nav-admin" href="admin.html" target="_blank">Admin ↗</a>
       </div>
     </nav>`;
 
