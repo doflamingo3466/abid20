@@ -157,7 +157,7 @@ if (footer) {
       </div>
       <div class="wrap footer-bottom">
         <span>© 2026 FORME CONCEPT STORE</span>
-        <span>BUILT WITH CARE · STUDENT PROJECT</span>
+        
       </div>
     </footer>`;
 }
