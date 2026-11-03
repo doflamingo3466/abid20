@@ -72,20 +72,65 @@ function logoutUser() {
   window.location.href = "index.html";
 }
 
-// Build the same navbar and footer on every page.
+// Build the shared navbar only on pages that contain #site-nav.
+// The admin page intentionally has no public header or footer.
 const user = getCurrentUser();
 const nav = document.getElementById("site-nav");
+
 if (nav) {
   nav.innerHTML = `
     <nav class="navbar wrap">
       <a class="logo" href="index.html">FORME<span>®</span></a>
-      <div class="nav-links">
-        <a href="index.html">Shop</a><a href="about.html">About</a>
+
+      <button
+        class="menu-toggle"
+        id="menu-toggle"
+        type="button"
+        aria-label="Open navigation"
+        aria-expanded="false"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-links" id="nav-links">
+        <a href="index.html">Shop</a>
+        <a href="about.html">About</a>
         <a href="cart.html">Bag <span class="nav-count" id="nav-cart-count">0</span></a>
-        ${user ? `<span class="nav-user">Hi, ${user.name.split(" ")[0]}</span><button class="nav-logout" onclick="logoutUser()">Log out</button>` : `<a href="login.html">Sign in</a>`}
+        ${
+          user
+            ? `<span class="nav-user">Hi, ${user.name.split(" ")[0]}</span>
+             <button class="nav-logout" onclick="logoutUser()">Log out</button>`
+            : `<a href="login.html">Sign in</a>`
+        }
         <a class="nav-admin" href="admin.html">Admin ↗</a>
       </div>
     </nav>`;
+
+  // Open and close the mobile navigation.
+  const menuToggle = document.getElementById("menu-toggle");
+  const navLinks = document.getElementById("nav-links");
+
+  menuToggle.onclick = function () {
+    const isOpen = navLinks.classList.toggle("active");
+    menuToggle.classList.toggle("open", isOpen);
+    menuToggle.setAttribute("aria-expanded", isOpen);
+    menuToggle.setAttribute(
+      "aria-label",
+      isOpen ? "Close navigation" : "Open navigation",
+    );
+  };
+
+  // Close the menu after selecting a page link.
+  navLinks.querySelectorAll("a").forEach(function (link) {
+    link.onclick = function () {
+      navLinks.classList.remove("active");
+      menuToggle.classList.remove("open");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Open navigation");
+    };
+  });
 }
 
 const footer = document.getElementById("site-footer");
@@ -93,11 +138,27 @@ if (footer) {
   footer.innerHTML = `
     <footer class="footer">
       <div class="wrap footer-top">
-        <div><a class="logo footer-logo" href="index.html">FORME<span>®</span></a><p>Everyday objects.<br>A little more considered.</p></div>
-        <div><p class="eyebrow">EXPLORE</p><a href="index.html">Shop the collection</a><a href="about.html">About FORME</a><a href="cart.html">Your bag</a></div>
-        <div><p class="eyebrow">CONTACT</p><a href="mailto:hello@forme.example">hello@forme.example</a><a href="tel:+923001234567">+92 300 123 4567</a><span>Faisalabad, Pakistan</span></div>
+        <div>
+          <a class="logo footer-logo" href="index.html">FORME<span>®</span></a>
+          <p>Everyday objects.<br>A little more considered.</p>
+        </div>
+        <div>
+          <p class="eyebrow">EXPLORE</p>
+          <a href="index.html">Shop the collection</a>
+          <a href="about.html">About FORME</a>
+          <a href="cart.html">Your bag</a>
+        </div>
+        <div>
+          <p class="eyebrow">CONTACT</p>
+          <a href="mailto:hello@forme.example">hello@forme.example</a>
+          <a href="tel:+923001234567">+92 300 123 4567</a>
+          <span>Faisalabad, Pakistan</span>
+        </div>
       </div>
-      <div class="wrap footer-bottom"><span>© 2026 FORME CONCEPT STORE</span><span>BUILT WITH CARE · STUDENT PROJECT</span></div>
+      <div class="wrap footer-bottom">
+        <span>© 2026 FORME CONCEPT STORE</span>
+        <span>BUILT WITH CARE · STUDENT PROJECT</span>
+      </div>
     </footer>`;
 }
 

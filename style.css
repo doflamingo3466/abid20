@@ -1197,3 +1197,438 @@ textarea {
     align-items: flex-start;
   }
 }
+
+
+/* ==========================================
+   RESPONSIVE NAVIGATION AND LAYOUT UPDATES
+   ========================================== */
+
+/* Burger button is hidden on desktop. */
+.menu-toggle {
+  display: none;
+  width: 42px;
+  height: 42px;
+  padding: 9px;
+  border: 1px solid var(--line);
+  background: white;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--blue);
+  transition: transform .2s ease, opacity .2s ease;
+}
+
+.menu-toggle.open span:first-child {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.open span:last-child {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Tablet layout. */
+@media (max-width: 850px) {
+  .wrap {
+    width: 90%;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    padding-top: 55px;
+  }
+
+  .hero-art {
+    min-height: 350px;
+  }
+
+  .hero-image {
+    height: 315px;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .feature-bento {
+    grid-template-rows: 220px 220px;
+  }
+
+  .auth-layout {
+    gap: 35px;
+  }
+
+  .cart-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile navigation and page layouts. */
+@media (max-width: 600px) {
+  .wrap {
+    width: 90%;
+  }
+
+  .navbar {
+    min-height: 70px;
+    padding: 14px 0;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo {
+    font-size: 25px;
+  }
+
+  .menu-toggle {
+    display: flex;
+    margin-left: auto;
+  }
+
+  .nav-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 12px 0 8px;
+    border-top: 1px solid var(--line);
+    margin-top: 8px;
+    font-size: 13px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links>a,
+  .nav-links>span,
+  .nav-links>button {
+    display: block;
+    width: 100%;
+    padding: 12px 4px;
+    text-align: left;
+  }
+
+  .nav-admin {
+    border-left: 0;
+    padding-left: 4px;
+  }
+
+  .nav-logout {
+    border-top: 0;
+  }
+
+  .hero {
+    padding-top: 48px;
+    padding-bottom: 55px;
+  }
+
+  .hero h1,
+  .auth-intro h1,
+  .about-hero h1 {
+    font-size: clamp(45px, 12vw, 64px);
+    letter-spacing: -3px;
+  }
+
+  .hero-text {
+    font-size: 13px;
+  }
+
+  .hero-art {
+    min-height: 285px;
+    padding: 10px;
+  }
+
+  .hero-image {
+    height: 255px;
+  }
+
+  .hero-sticker {
+    left: -7px;
+    top: 25px;
+    width: 75px;
+    height: 75px;
+    font-size: 10px;
+  }
+
+  .hero-caption {
+    gap: 8px;
+    font-size: 8px;
+  }
+
+  .section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .category-row {
+    flex-wrap: wrap;
+    gap: 13px 18px;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 12px;
+  }
+
+  .product-image-wrap img {
+    height: 190px;
+  }
+
+  .product-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 7px;
+  }
+
+  .product-info h3 {
+    font-size: 14px;
+  }
+
+  .product-info p {
+    font-size: 10px;
+  }
+
+  .add-button {
+    width: 100%;
+  }
+
+  .feature-bento {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 55px;
+  }
+
+  .feature-main {
+    min-height: 350px;
+    padding: 28px;
+  }
+
+  .feature-main h2 {
+    font-size: 42px;
+  }
+
+  .feature-side {
+    min-height: 210px;
+  }
+
+  .quote-section {
+    padding-top: 25px;
+    padding-bottom: 65px;
+  }
+
+  .quote-section h2 {
+    font-size: 32px;
+  }
+
+  .footer {
+    padding-top: 35px;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 25px 15px;
+  }
+
+  .footer-top>div:first-child {
+    grid-column: 1 / -1;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 9px;
+    font-size: 9px;
+  }
+
+  .auth-layout {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding-top: 45px;
+    padding-bottom: 45px;
+  }
+
+  .auth-intro {
+    min-height: 250px;
+  }
+
+  .auth-decoration {
+    width: 82px;
+    height: 82px;
+    right: 4%;
+    font-size: 9px;
+  }
+
+  .auth-card {
+    padding: 23px;
+  }
+
+  .page-section {
+    padding-top: 45px;
+    padding-bottom: 60px;
+  }
+
+  .page-title {
+    font-size: clamp(43px, 12vw, 60px);
+    letter-spacing: -3px;
+  }
+
+  .cart-layout {
+    gap: 18px;
+    margin-top: 25px;
+  }
+
+  .cart-panel,
+  .summary-panel,
+  .admin-box {
+    padding: 17px;
+  }
+
+  .cart-row {
+    grid-template-columns: 65px minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .cart-row img {
+    width: 65px;
+    height: 65px;
+  }
+
+  .cart-row>strong {
+    grid-column: 2;
+  }
+
+  .remove-button {
+    grid-column: 2;
+  }
+
+  .about-hero {
+    padding-top: 65px;
+    padding-bottom: 55px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: minmax(250px, auto);
+    padding-bottom: 55px;
+  }
+
+  .about-block {
+    min-height: 260px;
+    padding: 27px;
+  }
+
+  .contact-section {
+    padding-bottom: 65px;
+    flex-direction: column;
+  }
+
+  .contact-details {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  /* Admin page has no public header/footer and remains usable on phones. */
+  .admin-page {
+    padding-top: 35px;
+  }
+
+  .admin-top {
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .admin-top .button {
+    padding: 11px 13px;
+  }
+
+  .admin-stats {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin: 22px 0;
+  }
+
+  .admin-stats div {
+    padding: 17px;
+  }
+
+  .admin-stats strong {
+    font-size: 27px;
+  }
+
+  .admin-columns {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .admin-box {
+    min-width: 0;
+  }
+
+  .admin-item {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .admin-item>div:last-child {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+  }
+
+  .small-button {
+    margin: 0;
+  }
+
+  .admin-login {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+/* Very narrow phones. */
+@media (max-width: 380px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-image-wrap img {
+    height: 250px;
+  }
+
+  .contact-details {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-actions {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .admin-top {
+    flex-direction: column;
+  }
+}
