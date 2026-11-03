@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — FORME</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="site-nav"></div>
+  <main class="wrap page-section">
+    <section id="admin-login" class="auth-card admin-login">
+      <p class="eyebrow">STAFF ACCESS</p>
+      <h2>Admin sign in</h2>
+      <form id="admin-login-form">
+        <label>Username<input id="admin-user" required placeholder="Admin username"></label>
+        <label>Password<input id="admin-pass" type="password" required placeholder="Password"></label>
+        <button class="button button-blue full" type="submit">Open dashboard</button>
+        <p id="admin-error" class="form-message"></p>
+      </form>
+      <p class="tiny-note">Demo credentials: admin / forme2026</p>
+    </section>
+    <section id="admin-dashboard" hidden>
+      <div class="admin-top">
+        <div>
+          <p class="eyebrow">STORE CONTROL / 04</p>
+          <h1 class="page-title">Dashboard<span>.</span></h1>
+        </div><button id="admin-logout" class="button button-outline">Log out</button>
+      </div>
+      <div class="admin-stats">
+        <div><span>PRODUCTS</span><strong id="admin-product-count">0</strong></div>
+        <div><span>ORDERS</span><strong id="admin-order-count">0</strong></div>
+        <div><span>REGISTERED USERS</span><strong id="admin-user-count">0</strong></div>
+      </div>
+      <div class="admin-columns">
+        <section class="admin-box">
+          <p class="eyebrow">CATALOGUE</p>
+          <h2 id="product-form-title">Add a product</h2>
+          <form id="product-form"><input type="hidden" id="product-id"><label>Product name<input id="product-name"
+                required></label><label>Price (PKR)<input id="product-price" type="number" min="1"
+                required></label><label>Image URL<input id="product-image" type="url" required></label><label>Short
+              description<input id="product-description" required></label><button class="button button-blue"
+              type="submit">Save product</button> <button class="button button-outline" id="cancel-edit"
+              type="button">Cancel</button></form>
+          <div id="admin-products" class="admin-list"></div>
+        </section>
+        <section class="admin-box">
+          <p class="eyebrow">CUSTOMER ACTIVITY</p>
+          <h2>Recent orders</h2>
+          <div id="admin-orders" class="admin-list"></div>
+        </section>
+      </div>
+    </section>
+  </main>
+  <div id="site-footer"></div>
+  <script src="app.js"></script>
+  <script src="admin.js"></script>
+</body>
+
+</html>

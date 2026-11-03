@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign in — FORME</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="site-nav"></div>
+  <main class="auth-layout wrap">
+    <div class="auth-intro">
+      <p class="eyebrow">YOUR FORME ACCOUNT</p>
+      <h1>Good to<br><span>see you.</span></h1>
+      <p>Your account keeps your cart, orders and details in one place.</p>
+      <div class="auth-decoration">FORME<br>MEMBERS<br>ONLY ✳</div>
+    </div>
+    <div class="auth-card">
+      <p class="eyebrow">WELCOME BACK</p>
+      <h2>Sign in</h2>
+      <form id="login-form">
+        <label>Email address<input type="email" id="email" placeholder="you@example.com" required></label>
+        <label>Password<input type="password" id="password" placeholder="Your password" required></label>
+        <button class="button button-blue full" type="submit">Sign in <span>↗</span></button>
+        <p class="form-message" id="message"></p>
+      </form>
+      <p class="auth-switch">New around here? <a href="register.html">Create an account</a></p>
+      <p class="tiny-note">Demo project: account data is stored in this browser only.</p>
+    </div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="app.js"></script>
+  <script src="auth.js"></script>
+</body>
+
+</html>

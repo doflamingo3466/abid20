@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your bag — FORME</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="site-nav"></div>
+  <main class="wrap page-section">
+    <p class="eyebrow">YOUR PERSONAL SPACE / 02</p>
+    <h1 class="page-title">Your bag<span>.</span></h1>
+    <p class="page-lead">The good stuff you picked out. Your cart belongs to your account.</p>
+    <div class="cart-layout">
+      <section class="cart-panel">
+        <div class="panel-heading">
+          <h2>Selected pieces</h2><span id="cart-count">0 ITEMS</span>
+        </div>
+        <div id="cart-items"></div>
+      </section>
+      <aside class="summary-panel">
+        <p class="eyebrow">ORDER SUMMARY</p>
+        <div class="summary-line"><span>Subtotal</span><strong>Rs. <span id="subtotal">0</span></strong></div>
+        <div class="summary-line"><span>Delivery</span><span>Calculated later</span></div>
+        <div class="summary-total"><span>Total</span><strong>Rs. <span id="total">0</span></strong></div>
+        <p class="tiny-note">Delivery charges, if any, will be confirmed with you.</p>
+        <form id="checkout-form">
+          <label>Delivery address<textarea id="address" placeholder="House, street, city..." required
+              minlength="10"></textarea></label>
+          <label>Phone number<input id="phone" type="tel" placeholder="03XXXXXXXXX" pattern="03[0-9]{9}"
+              required></label>
+          <label>Payment method<select id="payment" required>
+              <option value="">Choose payment</option>
+              <option>Cash on Delivery</option>
+              <option>Advance Payment</option>
+            </select></label>
+          <button class="button button-blue full" type="submit">Place order <span>↗</span></button>
+        </form>
+        <p id="checkout-message" class="form-message"></p>
+      </aside>
+    </div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="app.js"></script>
+  <script src="cart.js"></script>
+</body>
+
+</html>
